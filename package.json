@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "build": "react-scripts build",
     "start": "node server.js"
   },
   "repository": {
