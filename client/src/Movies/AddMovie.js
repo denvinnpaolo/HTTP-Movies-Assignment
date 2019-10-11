@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Label, Input, FormGroup, Form, Button } from 'reactstrap';
 
 const initialValue = {
     title: "",
@@ -41,37 +42,45 @@ const AddMovie = props => {
     }
 
     return(
-        <form onSubmit={handleSubmit}>
-            <input
-                type='text'
-                name='title'
-                onChange={changeHandler}
-                placeholder='title'
-                value={newMovie.title}
-            />
-            <input
-                type='text'
-                name='director'
-                onChange={changeHandler}
-                placeholder='director'
-                value={newMovie.director}
-            />
-            <input
-                type='text'
-                name='metascore'
-                onChange={changeHandler}
-                placeholder='metascore'
-                value={newMovie.metascore}
-            />           
-            <input
-                type='text'
-                name='stars'
-                onChange={changeHandler}
-                placeholder='stars'
-                value={newMovie.stars}
-            />     
-            <button onSubmit={handleSubmit}>submit</button>      
-        </form>
+        <div className="form">
+        <Form onSubmit={handleSubmit}>
+        <FormGroup row>
+          <Input 
+            className="inputs"
+            type='text'
+            name='title'
+            onChange={changeHandler}
+            placeholder='title'
+            value={newMovie.title}
+        />
+        <Input 
+            className="inputs"
+            type='text'
+            name='director'
+            onChange={changeHandler}
+            placeholder='director'
+            value={newMovie.director}
+        />
+        <Input 
+            className="inputs"
+            type='text'
+            name='metascore'
+            onChange={changeHandler}
+            placeholder='metascore'
+            value={newMovie.metascore}
+        />
+        <Input 
+            className="inputs"
+            type='text'
+            name='stars'
+            onChange={changeHandler}
+            placeholder='stars'
+            value={newMovie.stars}
+        />
+        <Button onSubmit={handleSubmit}>Submit</Button>
+        </FormGroup>
+        </Form>
+        </div>
 
     );
 }

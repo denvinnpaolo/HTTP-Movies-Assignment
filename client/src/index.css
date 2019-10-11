@@ -75,3 +75,19 @@ body {
   color: red;
   text-align: center;
 }
+
+.form {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputs {
+  margin: 10px;
+}
+
+.addMovieTitle {
+  display:flex;
+
+  margin:10px;
+}
