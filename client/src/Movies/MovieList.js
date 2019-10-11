@@ -6,7 +6,7 @@ export default class MovieList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movies: []
+      movies: [],
     };
   }
 
@@ -21,17 +21,18 @@ export default class MovieList extends Component {
     return (
       <div className="movie-list">
         {this.state.movies.map(movie => (
-          <MovieDetails key={movie.id} movie={movie} />
+          <MovieDetails key={movie.id} movie={movie} {...this.props}/>
         ))}
       </div>
     );
   }
 }
 
-function MovieDetails({ movie }) {
+function MovieDetails(props) {
   return (
-    <Link to={`/movies/${movie.id}`}>
-      <MovieCard movie={movie} />
+    <Link to={`/movies/${props.movie.id}`}>
+      <MovieCard movie={props.movie} {...props}  />
     </Link>
   );
 }
+
