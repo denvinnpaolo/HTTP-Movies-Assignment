@@ -1,8 +1,10 @@
 import React from "react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
+
 export default class Movie extends React.Component {
   constructor(props) {
+    console.log(props)
     super(props);
     this.state = {
       movie: null
@@ -22,7 +24,10 @@ export default class Movie extends React.Component {
   fetchMovie = id => {
     axios
       .get(`http://localhost:5000/api/movies/${id}`)
-      .then(res => this.setState({ movie: res.data }))
+      .then(res =>{ 
+        this.setState({ movie: res.data })
+        this.props.updateMovie(res.data)
+      })
       .catch(err => console.log(err.response));
   };
 
@@ -37,8 +42,9 @@ export default class Movie extends React.Component {
     }
 
     return (
+      
       <div className="save-wrapper">
-        <MovieCard movie={this.state.movie} />
+        <MovieCard movie={this.state.movie} {...this.props}/>
         <div className="save-button" onClick={this.saveMovie}>
           Save
         </div>
